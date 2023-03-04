@@ -51,9 +51,8 @@ string generatorPassword(int countNumber, int countSpecial, int countUppercase, 
     password = password + generatorPassword(countSpecial, Special);
     password = password + generatorPassword(countUppercase, Uppercase);
     password = password + generatorPassword(countLowercase, Lowercase);
-    
-    
-    return password;
+ 
+    return mixString(password);
 }
 
 int main()
@@ -78,7 +77,7 @@ int main()
     string s = "";
     for (int i = 0; i < countpass; i++)
     {
-          cout << mixString(generatorPassword(countNumber, countSpecial, countUppercase, countLowercase)) << endl;
+          cout << generatorPassword(countNumber, countSpecial, countUppercase, countLowercase) << endl;
     }
     
 }
