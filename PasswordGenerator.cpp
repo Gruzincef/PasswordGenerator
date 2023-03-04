@@ -5,6 +5,13 @@
 #include <fstream>
 using namespace std;
 
+
+const string Number = "1234567890";
+const string Special = "/!@#$%^&*()_+{}:<>?[];',.";
+const string Uppercase = "QWERTYUIOPASDFGHJKLZXCVBNM";
+const string Lowercase = "qwertyuiopasdfghjklzxcvbnm";
+
+
 string generatorPassword(int count, string base) {
     srand(rand() + time(0));
     int max = strlen(base.c_str());
@@ -41,13 +48,8 @@ string generatorPassword(int count, const char* base) {
     return password;
 }
 
-
-
 string generatorPassword(int countNumber, int countSpecial, int countUppercase, int countLowercase) {
-    string Number = "1234567890";
-    string Special = "/!@#$%^&*()_+{}:<>?[];',.";
-    string Uppercase = "QWERTYUIOPASDFGHJKLZXCVBNM";
-    string Lowercase = "qwertyuiopasdfghjklzxcvbnm";
+
     string password="";
     password = password + generatorPassword(countNumber, Number);
     password = password + generatorPassword(countSpecial, Special);
