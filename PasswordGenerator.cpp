@@ -1,6 +1,8 @@
 ﻿#include <iostream>
 #include <string> 
 #include <stdlib.h>
+#include <iostream>
+#include <fstream>
 using namespace std;
 
 string generatorPassword(int count, string base) {
@@ -74,10 +76,18 @@ int main()
     cout << "Введите количество строчных букв в пароле:";
     int countLowercase;
     cin >> countLowercase;
-    string s = "";
+    cout << "Введите имя файла:";
+    string fl;
+    cin >> fl;
+    std::ofstream out(fl, std::ios::app);
     for (int i = 0; i < countpass; i++)
     {
-          cout << generatorPassword(countNumber, countSpecial, countUppercase, countLowercase) << endl;
+        if (out.is_open())
+        {
+            out << generatorPassword(countNumber, countSpecial, countUppercase, countLowercase) << std::endl;
+        }
     }
+    out.close();
+    cout << "Файл сохранен!";
     
 }
